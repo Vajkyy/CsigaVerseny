@@ -15,22 +15,29 @@ public class Csiga {
         this.pozicio = pozicio;
     }
 
-    public String szinKod() {
+    public String szinKod() {//a színkód nem biztos hogy jó!
         return switch (szin.toLowerCase()) {
-            case "piros" -> "#FF0000";
-            case "kék" -> "#0000FF";
-            case "zöld" -> "#008000";
-            default -> "#000000"; // !!!
+            case "piros" ->
+                "#FF0000";
+            case "kék" ->
+                "#0000FF";
+            case "zöld" ->
+                "#008000";
+            default ->
+                "#000000"; // !!!
         };
     }
 
     public void haladas() {
         int eredetiSebesseg = sebesseg;
-        if (RND.nextInt(100) < 20) { // 20% esély boostra
-            sebesseg += 1;            
+        sebesseg = RND.nextInt(10);
+
+
+        if (RND.nextInt(100) < 20) {  // 20% esély boostra
+            sebesseg += sebesseg;  // Sebesség duplázása
         }
         pozicio += sebesseg;
-        sebesseg = eredetiSebesseg; // A boost csak erre a körre érvényes
+        sebesseg = eredetiSebesseg;
     }
 
     public String getSzin() {
