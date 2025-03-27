@@ -15,11 +15,18 @@ public class CsigaversenyJatek {
     }
 
     public void fogadas(String szin) {
-
+        this.fogadottSzin = szin;
     }
 
     public String eredmeny() {
-        return "";
+        Csiga nyertesCsiga = csiga[0];
+        for (int i = 1; i < csiga.length; i++) {
+            if (csiga[i].getPozicio() > nyertesCsiga.getPozicio()) {
+                nyertesCsiga = csiga[i];
+            }
+        }
+        this.nyertes = nyertesCsiga.getSzin();
+        return nyertes;
     }
 
     public String getFogadottSzin() {
@@ -43,7 +50,7 @@ public class CsigaversenyJatek {
     }
 
     public void setKorokSzama(int korokSzama) {
-        this.korokSzama=korokSzama;
+        this.korokSzama = korokSzama;
     }
 
     public void setNyertes(String nyertes) {
