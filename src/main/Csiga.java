@@ -21,7 +21,7 @@ public class Csiga {
         this.pozicio = 0;
     }
 
-    public String setSzinKonzol(String szin) {
+    private String getSzinKonzol(String szin) {
         switch (szin) {
             case "piros":
                 return PIROS;
