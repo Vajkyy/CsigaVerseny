@@ -19,7 +19,7 @@ public class CsigaversenyJatek {
             System.out.println("Kör " + kor);
             for (Csiga csiga : this.csiga) {
                 csiga.haladas();
-                System.out.println(csiga.getSzinKonzol() + csiga.getSzinKep() + " pozíciója: " + csiga.getPozicio() + "\u001B[0m");
+                System.out.println(csiga.getSzinKonzol() + csiga.getSzinKep() + " pozíciója: " + csiga.getPozicio()  + "\u001B[0m");
             }
         }
     }

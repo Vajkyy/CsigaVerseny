@@ -14,7 +14,7 @@ public class Csiga {
     private static final String ALAP = "\u001B[0m";
 
     public Csiga(String szin, String szinKep, String szinKonzol, int sebesseg) {
-        this.szin = szin.toLowerCase();
+        this.szin = szin;
         this.szinKep = szinKep;
         this.szinKonzol = getSzinKonzol(szin);
         this.sebesseg = sebesseg;
@@ -44,7 +44,7 @@ public class Csiga {
 
     public void haladas() {
         int eredetiSebesseg = sebesseg;
-        sebesseg = (int)(Math.random() * 10);
+        sebesseg = (int) (Math.random() * 10);
 
         if (Math.random() < 0.2) {
             sebesseg *= 2;

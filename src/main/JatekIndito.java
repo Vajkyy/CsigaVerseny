@@ -8,8 +8,8 @@ public class JatekIndito {
         Csiga[] csigak = {new Csiga("piros", "🐌", "Piros", 1), new Csiga("kék", "🐌", "Kék", 1), new Csiga("zöld", "🐌", "Zöld", 1)};
         System.out.print("Tippelj: ");
         Scanner scanner = new Scanner(System.in);
-        String fogadottSzin = scanner.nextLine().toLowerCase();
-        CsigaversenyJatek jatek = new CsigaversenyJatek(fogadottSzin, csigak, 5);
+        String fogadottSzin = scanner.nextLine();
+        CsigaversenyJatek jatek = new CsigaversenyJatek(fogadottSzin, csigak, 10);
         jatek.futtatas();
         System.out.println(jatek.eredmeny());
     }
