@@ -48,7 +48,7 @@ public class Csiga {
 
         if (Math.random() < 0.2) {
             sebesseg *= 2;
-            System.out.print("Kap gyorsítót ");
+            System.out.print("⚡⚡⚡⚡ ");
         }
         pozicio += sebesseg;
         sebesseg = eredetiSebesseg;
