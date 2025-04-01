@@ -1,40 +1,54 @@
 package main;
 
-import java.util.Random;
-
 public class Csiga {
 
     private String szin;
+    private String szinKep;
+    private String szinKonzol;
     private int sebesseg;
     private int pozicio;
-    private static final Random RND = new Random();
 
-    public Csiga(String szin, int sebesseg, int pozicio) {
-        this.szin = szin;
+    private static final String PIROS = "\u001B[31m";
+    private static final String KEK = "\u001B[34m";
+    private static final String ZOLD = "\u001B[32m";
+    private static final String ALAP = "\u001B[0m";
+
+    public Csiga(String szin, String szinKep, String szinKonzol, int sebesseg) {
+        this.szin = szin.toLowerCase();
+        this.szinKep = szinKep;
+        this.szinKonzol = getSzinKonzol(szin);
         this.sebesseg = sebesseg;
-        this.pozicio = pozicio;
+        this.pozicio = 0;
     }
 
-    public String szinKod() {//a színkód nem biztos hogy jó!
-        return switch (szin.toLowerCase()) {
-            case "piros" ->
-                "#FF0000";
-            case "kék" ->
-                "#0000FF";
-            case "zöld" ->
-                "#008000";
-            default ->
-                "#000000"; // !!!
-        };
+    private String getSzinKonzol(String szin) {
+        switch (szin) {
+            case "piros":
+                return PIROS;
+            case "kék":
+                return KEK;
+            case "zöld":
+                return ZOLD;
+            default:
+                return ALAP;
+        }
+    }
+
+    public String getSzinKonzol() {
+        return szinKonzol;
+    }
+
+    public String getSzinKep() {
+        return szinKep;
     }
 
     public void haladas() {
         int eredetiSebesseg = sebesseg;
-        sebesseg = RND.nextInt(10);
+        sebesseg = (int)(Math.random() * 10);
 
-
-        if (RND.nextInt(100) < 20) {  // 20% esély boostra
-            sebesseg += sebesseg;  // Sebesség duplázása
+        if (Math.random() < 0.2) {
+            sebesseg *= 2;
+            System.out.print("Kap gyorsítót ");
         }
         pozicio += sebesseg;
         sebesseg = eredetiSebesseg;

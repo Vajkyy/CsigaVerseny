@@ -4,18 +4,24 @@ public class CsigaversenyJatek {
 
     private String fogadottSzin;
     private Csiga[] csiga;
-    private int korokSzama = 5;
+    private int korokSzama;
     private String nyertes;
 
-    public CsigaversenyJatek(String fogadottSzin, Csiga[] csiga, int korokSzama, String nyertes) {
+    public CsigaversenyJatek(String fogadottSzin, Csiga[] csiga, int korokSzama) {
         this.fogadottSzin = fogadottSzin;
         this.csiga = csiga;
         this.korokSzama = korokSzama;
-        this.nyertes = nyertes;
+        this.nyertes = "";
     }
 
-    public void fogadas(String szin) {
-        this.fogadottSzin = szin;
+    public void futtatas() {
+        for (int kor = 1; kor <= korokSzama; kor++) {
+            System.out.println("Kör " + kor);
+            for (Csiga csiga : this.csiga) {
+                csiga.haladas();
+                System.out.println(csiga.getSzinKonzol() + csiga.getSzinKep() + " pozíciója: " + csiga.getPozicio() + "\u001B[0m");
+            }
+        }
     }
 
     public String eredmeny() {
@@ -26,39 +32,7 @@ public class CsigaversenyJatek {
             }
         }
         this.nyertes = nyertesCsiga.getSzin();
-        return nyertes;
+        System.out.println("A nyertes csiga színe: " + nyertes);
+        return nyertes.equals(fogadottSzin) ? "Gratulálunk! Nyertél!" : "Sajnáljuk, veszítettél.";
     }
-
-    public String getFogadottSzin() {
-        return fogadottSzin;
-    }
-
-    public Csiga[] getCsiga() {
-        return csiga;
-    }
-
-    public int getKorokSzama() {
-        return korokSzama;
-    }
-
-    public String getNyertes() {
-        return nyertes;
-    }
-
-    public void setFogadottSzin(String fogadottSzin) {
-        this.fogadottSzin = fogadottSzin;
-    }
-
-    public void setKorokSzama(int korokSzama) {
-        this.korokSzama = korokSzama;
-    }
-
-    public void setNyertes(String nyertes) {
-        this.nyertes = nyertes;
-    }
-
-    public void setCsiga(Csiga[] csiga) {
-        this.csiga = csiga;
-    }
-
 }
